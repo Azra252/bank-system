@@ -1,0 +1,82 @@
+<!DOCTYPE html>;;;;
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Bank System</title>;;;
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 40px;
+    }
+    .bank-system {
+      background: #fff;
+      max-width: 400px;
+      margin: auto;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+    .balance {
+      font-size: 24px;
+      margin: 20px 0;
+      text-align: center;
+      color: green;
+    }
+    input[type="number"] {
+      width: calc(100% - 22px);
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: none;
+      background-color: #007BFF;
+      color: white;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .message {
+      text-align: center;
+      color: red;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="bank-system">
+  <h2>Bank System</h2>
+  <div class="balance">Balance: $<span id="balance">1000</span></div>
+
+  <input type="number" id="amount" placeholder="Enter amount">
+  <button onclick="deposit()">Deposit</button>
+  <button onclick="withdraw()">Withdraw</button>
+
+  <div class="message" id="message"></div>
+</div>
+
+<script>
+  let balance = 1000;
+
+  function updateBalance() {
+    document.getElementById('balance').textContent = balance.toFixed(2);
+  }
+
+  function deposit() {
+    const amount = parseFloat(document.getElementById('amount').value);
+    const message = document.getElementById('message');
+    if (isNaN(amount) || amount <= 0) {
+      messag
